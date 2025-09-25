@@ -91,3 +91,6 @@ console.log(addInterest(friends[1], 'Politics'))
 
 // run commad
 //npx ts-node  src/02-functions.ts 
+
+//git add -A
+//git push origin main
