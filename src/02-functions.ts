@@ -54,11 +54,7 @@ function sortColleagues(
   max : number
 ): EmailContact[] {
 */
-function sortColleagues(
-  colleagues: Colleague[],
-  sorter: (c1: Colleague, c2: Colleague) => number,
-  max? : number
-): EmailContact[] {
+function sortColleagues(colleagues: Colleague[],sorter: (c1: Colleague, c2: Colleague) => number,max? : number): EmailContact[] {
   let end = colleagues.length;
   if (max !== undefined) {
      end = max < 2 ? 1 : max
@@ -68,21 +64,30 @@ function sortColleagues(
   return fullResult.slice(0,end)
 }
 // Test invocations
-console.log(sortColleagues(colleagues.current, (a, b) => (a.contact.extension - b.contact.extension),3));
-console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length),1));
-console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length))); // NEW
-
+//console.log(sortColleagues(colleagues.current, (a, b) => (a.contact.extension - b.contact.extension),3));
+//console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length),1));
+//console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length))); // NEW
 
 //console.log(sortColleagues(colleagues.current, (a, b) => a.contact.extension - b.contact.extension));
 //console.log(sortColleagues(colleagues.current, (a, b) => a.name.length - b.name.length));
-
-
-// run commad
-//npx ts-node  src/02-functions.ts 
-
 
 //didint get\ to figure this out
 //function findFriends(friends:Friend[],sorter: (f1: Friend, f2:Friend) => ): {}
 //console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
 //console.log(findFriends(friends, (friend) => friend.age < 35));
 
+
+function addInterest(friend: Friend, interest:string):string[] {
+     if (friend.interests === undefined) {
+          friend.interests= [];
+     }
+     friend.interests.push(interest);
+     return friend.interests;
+}
+
+
+console.log(addInterest(friends[1], 'Politics'))
+
+
+// run commad
+//npx ts-node  src/02-functions.ts 
